@@ -1,9 +1,10 @@
-const CACHE_NAME = "olman-pwa-v2";
+const CACHE_NAME = "olman-pwa-v3";
 
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./olman-logo.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-512-maskable.png",
