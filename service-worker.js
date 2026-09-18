@@ -1,4 +1,4 @@
-const CACHE_NAME = "olman-pwa-v3";
+const CACHE_NAME = "olman-pwa-v4";
 
 const CORE_ASSETS = [
   "./",
