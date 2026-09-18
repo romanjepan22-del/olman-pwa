@@ -2,51 +2,30 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f58220">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="OLMAN">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+  <meta name="application-name" content="OLMAN rozpis služeb">
   <title>OLMAN SERVICE s.r.o. – Rozpis služeb</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180.png">
   <style>
-    *{box-sizing:border-box}
-    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;font-family:Arial,sans-serif}
-    #app{width:100%;height:100%;border:0;display:block;background:#fff}
-    #fallback{display:none;position:fixed;inset:0;background:#fff;align-items:center;justify-content:center;padding:24px;text-align:center}
-    .card{max-width:420px}
-    .logo{width:96px;height:96px;object-fit:contain;margin-bottom:18px}
-    h1{margin:0 0 8px;color:#173f68;font-size:24px}
-    p{color:#667085;line-height:1.5}
-    a{display:inline-block;margin-top:14px;padding:13px 18px;background:#f58220;color:#fff;text-decoration:none;border-radius:10px;font-weight:700}
+    html,body{margin:0;padding:0;width:100%;height:100%;background:#fff;overflow:hidden}
+    iframe{display:block;width:100%;height:100%;border:0;background:#fff}
   </style>
 </head>
 <body>
-  <iframe id="app" title="OLMAN SERVICE s.r.o. – Rozpis služeb"
-          src="https://script.google.com/macros/s/AKfycbxaSbhUscpezum_FvUL0-FfXavicVT5zoYPkdwJ-q-8L0JhHW7hqlZ1Kg2YOuf2fT9V/exec"
-          allow="fullscreen"></iframe>
-
-  <div id="fallback">
-    <div class="card">
-      <img class="logo" src="icons/icon-192.png" alt="OLMAN">
-      <h1>OLMAN SERVICE s.r.o.</h1>
-      <p>Rozpis služeb</p>
-      <a href="https://script.google.com/macros/s/AKfycbxaSbhUscpezum_FvUL0-FfXavicVT5zoYPkdwJ-q-8L0JhHW7hqlZ1Kg2YOuf2fT9V/exec" target="_self">Otevřít rozpis</a>
-    </div>
-  </div>
-
+  <iframe src="https://script.google.com/macros/s/AKfycbxaSbhUscpezum_FvUL0-FfXavicVT5zoYPkdwJ-q-8L0JhHW7hqlZ1Kg2YOuf2fT9V/exec" title="OLMAN SERVICE s.r.o. – Rozpis služeb" allow="clipboard-read; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+        navigator.serviceWorker.register('./service-worker.js', {scope:'./'}).catch(()=>{});
       });
     }
-    const frame = document.getElementById('app');
-    frame.addEventListener('error', () => {
-      frame.style.display = 'none';
-      document.getElementById('fallback').style.display = 'flex';
-    });
   </script>
 </body>
 </html>
